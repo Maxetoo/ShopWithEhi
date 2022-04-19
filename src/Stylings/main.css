@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@import './variables.css';
+@import '../First-page/Firstpage.css';
+@import '../Page-slider/Pageslider.css';
+@import '../Main-page/Main-page.css';
+@import '../Main-page/Nav-page/Navpage.css';
+@import '../Main-page/Faqs/Faqs-page.css';

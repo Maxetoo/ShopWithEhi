@@ -1,0 +1,24 @@
+.faqs-item {
+    width: 80%;
+}
+
+.faqs-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px var(--stroke);
+    height: 70px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: var(--black-color);
+    color: var(--main-fontColor);
+    font-size: 0.9em;
+}
+
+.faqs-details {
+    color: var(--white-color);
+    padding: 0.5rem;
+    height: auto;
+    font-size: 1em;
+}

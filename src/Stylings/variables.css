@@ -1,0 +1,13 @@
+:root {
+    --bg-intro-page: #e7d1aa;
+    --intro-font: #4e4333;
+    --black-font: #0000;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --styled-font: #d87093;
+    --main-bg: #1c1c1c;
+    --main-fontColor: #ebccc2;
+    --stroke: #878787;
+    --header-size: 1.5em;
+    --content-size: 1.1em;
+}
