@@ -4,9 +4,41 @@
     margin: 0;
 }
 
+body {
+    background: var(--main-bg);
+    -webkit-tap-highlight-color: transparent;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--black-color);
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #0c0c0c4d;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--main-bg);
+    outline: 1px solid slategrey;
+}
+
+.main-app {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 @import './variables.css';
 @import '../First-page/Firstpage.css';
 @import '../Page-slider/Pageslider.css';
 @import '../Main-page/Main-page.css';
 @import '../Main-page/Nav-page/Navpage.css';
 @import '../Main-page/Faqs/Faqs-page.css';
+@import '../Main-page/Components/Contact/Contact.css';

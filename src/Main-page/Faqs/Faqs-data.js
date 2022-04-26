@@ -1,22 +1,30 @@
 export const FaqsData = [
   {
     id: 0,
-    question: 'HOW EFFICIENT IS YOUR SERVICE ?',
-    answer: 'We are very efficient. We are open 24hours',
+    question: 'ARE ALL YOUR VINTAGE SHIRT THRIFT?',
+    answer:
+      'Yes all our vintage shirts are thrift UK first grade premium shirts except stated otherwise',
   },
   {
     id: 1,
-    question: 'DO YOU DELIVER NATIONWIDE ?',
-    answer: 'Yes, we deliver nationwide',
+    question: 'ARE ALL YOUR CLOTHES THRIFT?',
+    answer:
+      'Not all my clothes are thrift. My shoes, bags, purses are branded and imported',
   },
   {
     id: 2,
-    question: 'WANT IS OUR MISSION ?',
-    answer: 'Yes we pay all manner of text to the government',
+    question: 'DO YOU DELIVER ACROSS BORDERS?',
+    answer: "For now it's just within the country",
   },
   {
     id: 3,
-    question: 'MOST TANGIBLE ASSET ?',
-    answer: 'Our most tangible asset is the services we render',
+    question: 'AFTER ORDER, HOW MANY DAYS DOES IT TAKE?',
+    answer: 'At most 3days ',
+  },
+  {
+    id: 4,
+    question: 'CAN WE GET THE EXACT PRINT TWICE',
+    answer:
+      "Hardly, each shirt is unique so it's very difficult to get exactly same thing",
   },
 ]

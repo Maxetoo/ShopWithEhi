@@ -14,10 +14,29 @@
 }
 
 .page-slider-content {
-    color: var(--main-fontColor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.slider-content-border {
+    width: 200px;
+    height: 100px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: 2.5em;
-    opacity: 0;
+    border: solid 1.5px var(--main-fontColor);
+}
+
+.slider-content-texts {
+    color: var(--white-color);
+    font-size: 1.5em;
 }
 
 .page-slider-container {

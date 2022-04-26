@@ -1,80 +1,138 @@
 import React, { useState, useEffect } from 'react'
 import './Main-page.css'
-import { HiMenuAlt3 } from 'react-icons/hi'
-import { ImageData } from '../Assets/Images/Image-data'
 import NavPage from './Nav-page/Navpage'
 import { useGlobalContext } from '../context'
+import { ImageData } from '../Assets/Images/Image-data'
 import { FaqsData } from './Faqs/Faqs-data'
+import StickyBar from './Components/StickyBar/StickyBar'
 import FaqsPage from './Faqs/Faqs-page'
+import About from './Components/About/About'
+import Products from './Components/Products/Products'
+import Header from './Components/Header/Header'
+import Contact from './Components/Contact/Contact'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Mainpage = () => {
-  const { showNavPage, setShowNavPage } = useGlobalContext()
+  const {
+    showNavPage,
+    setShowNavPage,
+    aboutSection,
+    productSection,
+    faqsSection,
+    contactSection,
+    pageSlider,
+    scrollCouraselBtns,
+    handleScrollClicks,
+  } = useGlobalContext()
+  const [lastScroll, setLastScroll] = useState(0)
   const [showNavBar, setShowNavBar] = useState(true)
+  const [currentSection, setCurrentSection] = useState('A')
+  const [showStickyBar, setShowStickyBar] = useState(true)
+  //USEEFFECT TO TOGGLE SHOW AND HIDE HEADER MENU
 
   useEffect(() => {
-    let prevScroll = window.pageYOffset
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset
-      if (prevScroll > currentScroll) {
-        setShowNavBar(true)
+    const pageScroll = window.addEventListener('scroll', () => {
+      setLastScroll(window.pageYOffset)
+      if (window.scrollY > 200) {
+        if (window.scrollY > lastScroll) {
+          setShowNavBar(false)
+        } else {
+          setShowNavBar(true)
+        }
       } else {
-        setShowNavBar(false)
+        setShowNavBar(true)
       }
     })
-  }, [showNavBar])
+    return () => window.addEventListener('scroll', pageScroll)
+  }, [lastScroll])
+
+  // USEEFFECT TO CHANGE THE TEXT INDICATING SECTION ON THE STICKY BAR
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= aboutSection.current.offsetTop - 400) {
+        setCurrentSection('A')
+      }
+      if (window.scrollY >= productSection.current.offsetTop - 400) {
+        setCurrentSection('P')
+      }
+      if (window.scrollY >= faqsSection.current.offsetTop - 400) {
+        setCurrentSection('F')
+      }
+      if (window.scrollY >= contactSection.current.offsetTop - 400) {
+        setCurrentSection('C')
+        setShowStickyBar(false)
+      } else {
+        setShowStickyBar(true)
+      }
+    })
+  }, [showStickyBar])
+
+  // FUNCTION TO TOGGLE SHOW NAV PAGE
 
   const handleShowNavPage = () => {
     setShowNavPage(true)
   }
+
+  // USEEFFECT TO ANIMATE ELEMENTS WHEN PAGE LOADS
+
+  useEffect(() => {
+    const startingLoad = gsap.timeline()
+    if (pageSlider) {
+      startingLoad
+        .from('.first-imageLoad', {
+          opacity: 0,
+          y: 20,
+          duration: 1,
+        })
+        .from('.home-page-header', {
+          opacity: 0,
+          y: 20,
+          delay: -0.5,
+        })
+        .from('.home-page-texts', {
+          y: 20,
+          opacity: 0,
+        })
+        .from('.page-line', {
+          opacity: 0,
+          y: 10,
+        })
+    }
+  }, [pageSlider])
+
+  //USEEFECT TO CALL THE FUNCTION TO SHOW ACTIVE ELEMENTS ON COURASEL BTNS
+  useEffect(() => {
+    scrollCouraselBtns()
+  }, [])
+
+  // USEEFFECT TO SCROLL THROUGH IMAGES ON COURASEL BTN ON CLICK EVENT
+  useEffect(() => {
+    handleScrollClicks()
+  }, [])
+
   return (
     <section className='main-page-section'>
+      {showStickyBar && <StickyBar currentSection={currentSection} />}
       {showNavPage && <NavPage />}
       <article className='about-section'>
-        {showNavBar && (
-          <article className='main-header'>
-            <div className='main-name'>SHOPWITHEHI</div>
-            <div className='menu-bar' onClick={handleShowNavPage}>
-              <HiMenuAlt3 />
-            </div>
-          </article>
-        )}
+        {showNavBar && <Header handleShowNavPage={handleShowNavPage} />}
 
         <article className='main-home-page'>
-          <img src={ImageData.fifth} alt='vintage clothes' />
-          <div className='home-page-content'>
-            <p className='home-page-header'>About</p>
-            <p className='home-page-texts'>
-              ShopWithEhi is a clothing brand where all kinds of clothing are
-              being sold from thrift wears to ready-to-wear. Clothings such as
-              vintage shirts, gowns, shoes and bags. We everything fashion and
-              also place our customers at very high esteem for their
-              satisfaction in our priority.
-            </p>
-            <div className='page-line'></div>
-            <div className='budget-content-container'>
-              <p className='budget-content-header'>Got Low Budget?</p>
-              <p className='budget-content-texts'>
-                You don't have to worry about that cause we offer the best
-                affordable clothes that'll fit your prefrence with shikini money
-              </p>
-            </div>
-          </div>
+          <img
+            src={ImageData.fifth}
+            alt='vintage clothes'
+            className='first-imageLoad'
+          />
+          {/* ABOUT SECTION  */}
+          <About aboutSection={aboutSection} />
         </article>
-        <article className='products-section'>
-          <div className='products-content'>
-            <p className='products-header'>Products</p>
-            <div className='products-img-container'>
-              <ul className='image-lists'>
-                <li className='image-container'></li>
-                <li className='image-container'></li>
-                <li className='image-container'></li>
-                <li className='image-container'></li>
-                <li className='image-container'></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article className='faqs-section'>
+        {/* PRODUCTS SECTION  */}
+        <Products productSection={productSection} />
+        {/* FAQS SECTION  */}
+        <article className='faqs-section' ref={faqsSection}>
           <div className='faqs-content'>
             <p className='faqs-header'>FAQs</p>
           </div>
@@ -83,6 +141,10 @@ const Mainpage = () => {
               return <FaqsPage {...value} key={value.id} />
             })}
           </div>
+        </article>
+        {/* CONTACT SECTION */}
+        <article className='contact-section' ref={contactSection}>
+          <Contact />
         </article>
       </article>
     </section>

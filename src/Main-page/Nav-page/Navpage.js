@@ -6,10 +6,14 @@ import { useGlobalContext } from '../../context'
 import { gsap } from 'gsap'
 
 const Navpage = () => {
-  const { setShowNavPage } = useGlobalContext()
-  const handleHidePage = () => {
-    setShowNavPage(false)
-  }
+  const {
+    aboutSection,
+    productSection,
+    faqsSection,
+    contactSection,
+    scrollToSection,
+    handleHidePage,
+  } = useGlobalContext()
 
   useEffect(() => {
     const listTl = gsap.timeline()
@@ -43,30 +47,44 @@ const Navpage = () => {
       <div className='nav-options'>
         <p className='nav-title'>Menu</p>
         <ul className='nav-lists-container'>
-          <li className='nav-list'>About</li>
-          <li className='nav-list'>Products</li>
-          <li className='nav-list'>FAQs</li>
-          <li className='nav-list'>Contact</li>
+          <li
+            className='nav-list'
+            onClick={() => scrollToSection(aboutSection)}
+          >
+            About
+          </li>
+          <li
+            className='nav-list'
+            onClick={() => scrollToSection(productSection)}
+          >
+            Products
+          </li>
+          <li className='nav-list' onClick={() => scrollToSection(faqsSection)}>
+            FAQs
+          </li>
+          <li
+            className='nav-list'
+            onClick={() => scrollToSection(contactSection)}
+          >
+            Contact
+          </li>
         </ul>
         <div className='socials'>
           <ul className='social-media-lists'>
             <li className='social-list'>
-              <a href=''>
+              <a href='https://wa.me/qr/FXN7TRBLUUZXC1'>
                 <BsWhatsapp />
               </a>
             </li>
             <li className='social-list'>
-              <a href=''>
+              <a href='https://www.instagram.com/invites/contact/?i=1gnzd3074t14y&utm_content=nvkqubx'>
                 <BsInstagram />
               </a>
             </li>
             <li className='social-list'>
-              <a href=''>
+              <a href='https://www.facebook.com/ehi.grace.33'>
                 <BsFacebook />
               </a>
-            </li>
-            <li className='social-list'>
-              <a href=''></a>
             </li>
           </ul>
         </div>

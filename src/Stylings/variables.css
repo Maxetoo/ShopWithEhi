@@ -8,6 +8,12 @@
     --main-bg: #1c1c1c;
     --main-fontColor: #ebccc2;
     --stroke: #878787;
-    --header-size: 1.5em;
-    --content-size: 1.1em;
+    --product-desc: #171616;
+    --colored-elem: #daa520;
+    --header-size: 1.8em;
+    --content-size: 1.2em;
+    --header-size-l: 2.1em;
+    --content-size-l: 1.4em;
+    --header-size-xl: 2em;
+    --content-size-xl: 1.3em;
 }

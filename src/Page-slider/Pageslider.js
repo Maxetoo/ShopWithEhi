@@ -29,7 +29,11 @@ const Pageslider = () => {
   }, [])
   return (
     <div className='page-slider-section'>
-      <div className='page-slider-content'>Ehi Got You !!!</div>
+      <div className='page-slider-content'>
+        <div className='slider-content-border'>
+          <div className='slider-content-texts'>Ehi Got You!</div>
+        </div>
+      </div>
       <div className='page-slider-container'>
         <div className='page-slider-left'></div>
         <div className='page-slider-right'></div>

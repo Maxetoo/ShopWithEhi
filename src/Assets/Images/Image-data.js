@@ -1,13 +1,17 @@
-import FirstImage from './vintage 1.jpg'
-import SecondImage from './vintage 2.jpg'
-import ThirdImage from './vintage 3.jpg'
-import FourthImage from './vintage 4.jpg'
 import FifthImage from './vintage 5.jpg'
+import SixthImage from './thrift-clothes.jpg'
+import Bags from './HandBag.jpg'
+import Shoes from './Shoes.jpg'
+import Trouser from './Trouser.jpg'
+import Gown from './gown.jpg'
+import Tops from './vintage top.jpg'
 
 export const ImageData = {
-  first: FirstImage,
-  second: SecondImage,
-  third: ThirdImage,
-  fourth: FourthImage,
   fifth: FifthImage,
+  sixth: SixthImage,
+  tops: Tops,
+  bags: Bags,
+  shoes: Shoes,
+  dress: Gown,
+  trouser: Trouser,
 }
