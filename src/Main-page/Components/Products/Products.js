@@ -8,7 +8,7 @@ const Products = ({ productSection }) => {
     productTl.to('.products-header', {
       scrollTrigger: {
         trigger: '.products-header',
-        start: 'top center',
+        start: 'top bottom',
       },
       opacity: 1,
       transition: 'ease 0.5s',

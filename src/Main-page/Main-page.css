@@ -116,25 +116,35 @@
     .home-page-header {
         text-align: start;
         font-size: var(--header-size);
+        opacity: 0;
     }
     .home-page-texts {
         margin-top: 1.5rem;
         font-size: var(--content-size);
         color: var(--white-color);
+        opacity: 0;
     }
     .page-line {
         width: 100%;
         height: 1px;
         background: var(--stroke);
         margin-top: 2.5rem;
+        opacity: 0;
     }
-    .main-home-contents img {
+    /******** BUDGET CONTENT CONTAINER  ********/
+    .budget-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 5rem;
+        align-items: center;
+    }
+    .budget-section img {
         width: 100%;
         margin-top: 9rem;
         height: 350px;
         background: var(--white-color);
     }
-    /******** BUDGET CONTENT CONTAINER  ********/
     .budget-content-container {
         width: 90%;
         height: 270px;
@@ -376,25 +386,35 @@
     .home-page-header {
         text-align: start;
         font-size: var(--header-size-l);
+        opacity: 0;
     }
     .home-page-texts {
         margin-top: 1.5rem;
         font-size: var(--content-size-l);
         color: var(--white-color);
+        opacity: 0;
     }
     .page-line {
         width: 100%;
         height: 1px;
         background: var(--stroke);
         margin-top: 2.5rem;
+        opacity: 0;
     }
-    .main-home-contents img {
+    /******** BUDGET CONTENT CONTAINER  ********/
+    .budget-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 5rem;
+        align-items: center;
+    }
+    .budget-section img {
         width: 100%;
         margin-top: 9rem;
         height: 400px;
         background: var(--white-color);
     }
-    /******** BUDGET CONTENT CONTAINER  ********/
     .budget-content-container {
         width: 90%;
         height: 270px;
@@ -616,17 +636,22 @@
     }
     .main-home-page {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         width: 100%;
         margin-top: 3.5rem;
     }
-    .main-home-page img {
-        width: 100%;
-        /* height: 420px; */
+    .main-home-page-cont {
+        display: flex;
+        flex-direction: row;
         height: 500px;
-        margin-top: -0.5rem;
-        border-radius: 5px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem;
+        margin-top: 3rem;
+    }
+    .main-home-page img {
+        width: 50%;
+        height: 90%;
+        border-radius: 0%;
     }
     .main-home-contents {
         width: 100%;
@@ -647,29 +672,45 @@
     .home-page-header {
         text-align: start;
         font-size: var(--header-size-xl);
+        opacity: 0;
     }
     .home-page-texts {
         margin-top: 3rem;
         font-size: var(--content-size-xl);
         color: var(--white-color);
+        opacity: 0;
     }
     .page-line {
         width: 100%;
         height: 1px;
         background: var(--stroke);
         margin-top: 4rem;
-    }
-    .main-home-contents img {
-        width: 100%;
-        margin-top: 9rem;
-        /* height: 450px; */
-        height: 500px;
-        background: var(--white-color);
+        opacity: 0;
     }
     /******** BUDGET CONTENT CONTAINER  ********/
+    .budget-section {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        margin-top: 5rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem;
+    }
+    .budget-section img {
+        width: 50%;
+        margin-top: 9rem;
+        height: 400px;
+        background: var(--white-color);
+    }
     .budget-content-container {
-        width: 90%;
-        height: 270px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 45%;
+        padding-left: 1rem;
         margin-top: 5rem;
     }
     .budget-content-header {
@@ -709,7 +750,7 @@
     }
     .products-img-container {
         width: 100%;
-        height: 550px;
+        height: 500px;
         margin-top: 5rem;
     }
     .image-lists {
@@ -754,7 +795,7 @@
         height: 15%;
         padding: 1rem;
         color: var(--white-color);
-        font-size: var(--content-size-xl);
+        font-size: 1.3em;
         background: var(--product-desc);
         opacity: 0.8;
         bottom: 0;
@@ -777,8 +818,8 @@
     }
     .btns-courasel li {
         margin: 0.5rem;
-        height: 20px;
-        width: 20px;
+        height: 15px;
+        width: 15px;
         border-radius: 50%;
         border: solid 1px var(--white-color);
         cursor: pointer;

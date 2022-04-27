@@ -36,9 +36,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 @import './variables.css';
-@import '../First-page/Firstpage.css';
-@import '../Page-slider/Pageslider.css';
 @import '../Main-page/Main-page.css';
 @import '../Main-page/Nav-page/Navpage.css';
 @import '../Main-page/Faqs/Faqs-page.css';
 @import '../Main-page/Components/Contact/Contact.css';
+@import '../Loader/Loading.css';

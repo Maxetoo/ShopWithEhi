@@ -1,27 +1,15 @@
 import React, { useContext, useState, useRef, useEffect } from 'react'
 
 const AppContext = React.createContext()
-const loadStorage = () => {
-  const addLoadStorage = localStorage.getItem('loadStorage')
-  if (addLoadStorage) {
-    return true
-  } else {
-    return false
-  }
-}
 
 const AppProvider = ({ children }) => {
+  const [hasLoaded, setHasLoaded] = useState(false)
   const [typeWriter, setTypeWriter] = useState(false)
-  const [pageSlider, setPageSlider] = useState(loadStorage())
   const [showNavPage, setShowNavPage] = useState(false)
   const aboutSection = useRef(null)
   const productSection = useRef(null)
   const faqsSection = useRef(null)
   const contactSection = useRef(null)
-
-  useEffect(() => {
-    localStorage.setItem('loadStorage', pageSlider)
-  }, [pageSlider])
 
   const handleHidePage = () => {
     setShowNavPage(false)
@@ -121,8 +109,6 @@ const AppProvider = ({ children }) => {
       value={{
         typeWriter,
         setTypeWriter,
-        pageSlider,
-        setPageSlider,
         showNavPage,
         setShowNavPage,
         aboutSection,
@@ -134,6 +120,8 @@ const AppProvider = ({ children }) => {
         scrollCouraselBtns,
         handleScrollClicks,
         shareUrl,
+        hasLoaded,
+        setHasLoaded,
       }}
     >
       {children}

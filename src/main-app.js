@@ -1,15 +1,14 @@
 import React from 'react'
 import './Stylings/main.css'
-import FirstPage from './First-page/Firstpage'
 import MainPage from './Main-page/Main-page'
+import Loading from './Loader/Loading'
 import { useGlobalContext } from './context'
 
 const MainApp = () => {
-  const { pageSlider } = useGlobalContext()
+  const { hasLoaded } = useGlobalContext()
+
   return (
-    <main className='main-app'>
-      {pageSlider ? <MainPage /> : <FirstPage />}
-    </main>
+    <main className='main-app'>{hasLoaded ? <MainPage /> : <Loading />}</main>
   )
 }
 

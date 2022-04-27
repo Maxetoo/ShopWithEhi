@@ -38,7 +38,7 @@ const About = ({ aboutSection }) => {
         </p>
         <div className='page-line'></div>
       </div>
-      <img
+      {/* <img
         src={ImageData.sixth}
         alt='clothes and bags'
         className='budget-img'
@@ -47,11 +47,11 @@ const About = ({ aboutSection }) => {
         <p className='budget-content-header'>Got Low Budget?</p>
         <p className='budget-content-texts'>
           You don't have to worry about that cause we offer the best affordable
-          clothes that'll fit your prefrence. We believe you don't need much to
-          look good. Come shopwithehi with shikini money.
+          vintage clothing that'll fit your prefrence. We believe you don't need
+          much to look good. Come shopwithehi with shikini money.
         </p>
         <div className='page-line'></div>
-      </div>
+      </div> */}
     </article>
   )
 }

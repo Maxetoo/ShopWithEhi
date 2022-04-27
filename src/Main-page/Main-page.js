@@ -22,7 +22,7 @@ const Mainpage = () => {
     productSection,
     faqsSection,
     contactSection,
-    pageSlider,
+    hasLoaded,
     scrollCouraselBtns,
     handleScrollClicks,
   } = useGlobalContext()
@@ -80,28 +80,28 @@ const Mainpage = () => {
 
   useEffect(() => {
     const startingLoad = gsap.timeline()
-    if (pageSlider) {
+    if (hasLoaded) {
       startingLoad
-        .from('.first-imageLoad', {
-          opacity: 0,
+        .to('.first-imageLoad', {
+          opacity: 1,
           y: 20,
           duration: 1,
         })
-        .from('.home-page-header', {
-          opacity: 0,
+        .to('.home-page-header', {
+          opacity: 1,
           y: 20,
           delay: -0.5,
         })
-        .from('.home-page-texts', {
+        .to('.home-page-texts', {
           y: 20,
-          opacity: 0,
+          opacity: 1,
         })
-        .from('.page-line', {
-          opacity: 0,
+        .to('.page-line', {
+          opacity: 1,
           y: 10,
         })
     }
-  }, [pageSlider])
+  }, [hasLoaded])
 
   //USEEFECT TO CALL THE FUNCTION TO SHOW ACTIVE ELEMENTS ON COURASEL BTNS
   useEffect(() => {
@@ -121,13 +121,32 @@ const Mainpage = () => {
         {showNavBar && <Header handleShowNavPage={handleShowNavPage} />}
 
         <article className='main-home-page'>
+          <div className='main-home-page-cont'>
+            <img
+              src={ImageData.fifth}
+              alt='vintage clothes'
+              className='first-imageLoad'
+            />
+            {/* ABOUT SECTION  */}
+            <About aboutSection={aboutSection} />
+          </div>
+        </article>
+        <article className='budget-section'>
           <img
-            src={ImageData.fifth}
-            alt='vintage clothes'
-            className='first-imageLoad'
+            src={ImageData.sixth}
+            alt='clothes and bags'
+            className='budget-img'
           />
-          {/* ABOUT SECTION  */}
-          <About aboutSection={aboutSection} />
+          <div className='budget-content-container'>
+            <p className='budget-content-header'>Got Low Budget?</p>
+            <p className='budget-content-texts'>
+              You don't have to worry about that cause we offer the best
+              affordable vintage clothing that'll fit your prefrence. We believe
+              you don't need much to look good. Come shopwithehi with shikini
+              money.
+            </p>
+            <div className='page-line'></div>
+          </div>
         </article>
         {/* PRODUCTS SECTION  */}
         <Products productSection={productSection} />
